@@ -20,7 +20,7 @@
 <style scoped>
 svg path,
 svg rect{
-  fill: #FF6700;
+  fill: #4979ff;
 }
 .loader{
     margin: 0 0 2em;

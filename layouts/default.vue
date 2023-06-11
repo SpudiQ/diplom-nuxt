@@ -1,9 +1,11 @@
 <template>
     <div class="background">
+        <DHeader />
         <slot />
     </div>
 </template>
 <script setup>
+import DHeader from './header/DHeader.vue'
 
 </script>
 <style scoped>
