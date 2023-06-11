@@ -17,22 +17,26 @@ const isLoading = ref(false)
 const email = ref('')
 const password = ref('')
 
-async function signInWithEmail() {
-    isLoading.value = true
-    supabase.auth.signInWithPassword({
-        email: email.value,
-        password: password.value,
-    })
-    .then((res) => {
-        console.log(res)
-        store.sessionData = res.data.session
-        store.ActiveUser = res.data.user
-        store.isAuthenticated = true
-        navigateTo('/')
-    })
-    .catch(err => console.error(err))
-    .finally(() => isLoading.value = false)
+const signInWithEmail = () => {
+    console.log(yes)
 }
+
+// async function signInWithEmail() {
+//     isLoading.value = true
+//     supabase.auth.signInWithPassword({
+//         email: email.value,
+//         password: password.value,
+//     })
+//     .then((res) => {
+//         console.log(res)
+//         store.sessionData = res.data.session
+//         store.ActiveUser = res.data.user
+//         store.isAuthenticated = true
+//         navigateTo('/')
+//     })
+//     .catch(err => console.error(err))
+//     .finally(() => isLoading.value = false)
+// }
 </script>
 
 <style></style>
