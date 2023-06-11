@@ -8,10 +8,12 @@
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
+    "@nuxtjs/supabase": "^0.3.6",
     "nuxt": "^3.0.0"
   },
   "dependencies": {
     "@pinia/nuxt": "^0.4.11",
+    "dotenv": "^16.1.4",
     "pinia": "^2.1.3"
   }
 }
