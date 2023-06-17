@@ -1,9 +1,9 @@
 <template>
     <div style="border-radius: 300px; background: linear-gradient(180deg, rgba(111, 90, 255, 0.8) 0%, rgba(151, 71, 255, 0.8) 43.31%, rgba(255, 55, 151, 0.8) 100%); padding: 1px;">
         <nav class="nav__bar">
-            <router-link to="/1" class="nav__item">Dashboard</router-link>
-            <router-link to="/1" class="nav__item">Users</router-link>
-            <router-link to="/1" class="nav__item">Inventory</router-link>
+            <router-link to="/dashboard" class="nav__item">Dashboard</router-link>
+            <router-link to="/users" class="nav__item">Users</router-link>
+            <router-link to="/inventory" class="nav__item">Inventory</router-link>
         </nav>
     </div>
 </template>

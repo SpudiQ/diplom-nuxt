@@ -2,14 +2,15 @@
     <form @submit.prevent="signInWithEmail" class="auth__form">
         <h1 class="title">UManage</h1>
         <div class="auth__form__wrapper">
-            <div style="border-radius: 24px; background: linear-gradient(180deg, rgba(111, 90, 255, 0.8) 0%, rgba(151, 71, 255, 0.8) 43.31%, rgba(255, 55, 151, 0.8) 100%); padding: 1px;">
+            <div class="rim">
                 <input type="text" v-model="email" class="field">
             </div>
-            <div style="border-radius: 24px; background: linear-gradient(180deg, rgba(111, 90, 255, 0.8) 0%, rgba(151, 71, 255, 0.8) 43.31%, rgba(255, 55, 151, 0.8) 100%); padding: 1px;">
+            <div class="rim">
                 <input type="password" class="field" v-model="password">
             </div>
+            <p style="color: red">{{ errors }}</p>
             <button type="submit" v-if="!isLoading" class="btn__login">Войти</button>
-            <LoadersCircle v-else />
+            <LoadersCircle v-else style="height: 60px;"/>
         </div>
     </form>
 </template>
@@ -22,29 +23,44 @@ const isLoading = ref(false)
 const email = ref('')
 const password = ref('')
 
+const errors = ref()
+
 async function signInWithEmail() {
-  isLoading.value = true;
-  supabase.auth
-    .signInWithPassword({
-      email: email.value,
-      password: password.value,
-    })
-    .then((res) => {
-      if (res.data.session && res.data.user) {
-        store.sessionData = res.data.session;
-        store.ActiveUser = res.data.user;
-        store.isAuthenticated = true;
-        navigateTo('/');
-      } else {
-        console.error('Пользователь не найден');
-      }
-    })
-    .catch((err) => console.error(err))
-    .finally(() => (isLoading.value = false));
+    isLoading.value = true;
+    errors.value = ''
+    supabase.auth
+        .signInWithPassword({
+            email: email.value,
+            password: password.value,
+        })
+        .then((res) => {
+            if (res.data.session && res.data.user) {
+                store.sessionData = res.data.session;
+                store.ActiveUser = res.data.user;
+                store.isAuthenticated = true;
+                navigateTo('/');
+            } else {
+                return errors.value = ('Пользователь не найден')
+            }
+        })
+        .catch((err) => console.error(err))
+        .finally(() => (isLoading.value = false));
 }
 </script>
 
 <style scoped>
+.rim {
+    border-radius: 24px; 
+    background: linear-gradient(180deg, rgba(111, 90, 255, 0.8) 0%, rgba(151, 71, 255, 0.8) 43.31%, rgba(255, 55, 151, 0.8) 100%); 
+    padding: 1px;
+}
+
+.is-invalid {
+  border-color: red;
+}
+.error {
+  color: red;
+}
 .auth__form {
     padding: 60px 80px;
 
@@ -92,6 +108,7 @@ async function signInWithEmail() {
     border: none;
     border-radius: 25px;
     width: 150px;
+    height: 58px;
     padding: 12px 0;
     color: #F0F0F0;
     font-size: 28px;

@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div style="color: white">
         main
     </div>
 </template>

@@ -1,6 +1,6 @@
 <template>
     <div style="color: white">
-        staff
+        inventory
     </div>
 </template>
 <script setup>

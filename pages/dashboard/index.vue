@@ -1,6 +1,6 @@
 <template>
     <div style="color: white">
-        staff
+        dashboard
     </div>
 </template>
 <script setup>
