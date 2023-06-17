@@ -23,19 +23,24 @@ const email = ref('')
 const password = ref('')
 
 async function signInWithEmail() {
-    isLoading.value = true
-    supabase.auth.signInWithPassword({
-        email: email.value,
-        password: password.value,
+  isLoading.value = true;
+  supabase.auth
+    .signInWithPassword({
+      email: email.value,
+      password: password.value,
     })
-        .then((res) => {
-            store.sessionData = res.data.session
-            store.ActiveUser = res.data.user
-            store.isAuthenticated = true
-            navigateTo('/')
-        })
-        .catch(err => console.error(err))
-        .finally(() => isLoading.value = false)
+    .then((res) => {
+      if (res.data.session && res.data.user) {
+        store.sessionData = res.data.session;
+        store.ActiveUser = res.data.user;
+        store.isAuthenticated = true;
+        navigateTo('/');
+      } else {
+        console.error('Пользователь не найден');
+      }
+    })
+    .catch((err) => console.error(err))
+    .finally(() => (isLoading.value = false));
 }
 </script>
 
