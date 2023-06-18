@@ -9,6 +9,7 @@ export default {
   components: [
     { path: '~/@core/components/loaders', prefix: 'Loaders' },
     { path: '~/views/login', prefix: 'Auth' },
+    { path: '~/views/main', prefix: 'Main' },
   ],
   css: [
     '@/assets/css/main.css'
