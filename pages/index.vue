@@ -17,6 +17,10 @@ import Update from '@/views/main/Update.vue'
 definePageMeta({
   middleware: 'auth'
 });
+
+useHead({
+  title: ':)'
+})
 </script>
 
 <style scoped>
