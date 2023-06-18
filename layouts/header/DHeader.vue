@@ -1,6 +1,8 @@
 <template>
     <div class="header">
-        <DHeaderLogo />
+        <router-link to="/">
+            <DHeaderLogo />
+        </router-link>
         <DHeaderNav />
         <DHeaderProfile />
     </div>

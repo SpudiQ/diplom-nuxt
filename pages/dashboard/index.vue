@@ -7,6 +7,10 @@
 definePageMeta({
   middleware: 'auth'
 });
+
+useHead({
+  title: 'Dashboard'
+})
 </script>
 <style>
     

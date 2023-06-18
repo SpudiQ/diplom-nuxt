@@ -8,6 +8,10 @@
 definePageMeta({
   middleware: 'auth'
 });
+
+useHead({
+  title: ':)'
+})
 </script>
 
 <style scoped>
