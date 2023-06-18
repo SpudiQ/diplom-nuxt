@@ -1,15 +1,15 @@
 <template>
-    <InventoryList />
+    <div>
+        <InventoryList />
+    </div>
 </template>
 <script setup>
 definePageMeta({
-  middleware: 'auth'
+    middleware: 'auth'
 });
 
 useHead({
-  title: 'Inventory'
+    title: 'Inventory'
 })
 </script>
-<style>
-    
-</style>
+<style></style>
