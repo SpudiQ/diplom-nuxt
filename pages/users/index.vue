@@ -1,6 +1,6 @@
 <template>
-    <div style="color: white">
-        staff
+    <div>
+      <UsersList />
     </div>
 </template>
 <script setup>
