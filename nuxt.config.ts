@@ -11,6 +11,7 @@ export default {
     { path: '~/views/login', prefix: 'Auth' },
     { path: '~/views/main', prefix: 'Main' },
     { path: '~/views/inventory', prefix: 'Inventory' },
+    { path: '~/views/users', prefix: 'Users' },
     { path: '~/@core/components', prefix: false },
   ],
   css: [
